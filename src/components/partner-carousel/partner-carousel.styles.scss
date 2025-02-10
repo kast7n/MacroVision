@@ -1,0 +1,50 @@
+$animation-duration: 10s;
+$logo-width: 100px;
+$logo-height: 100px;
+$logo-margin: 2rem;
+
+.carousel {
+  &-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1cap 0;
+    position: relative;
+  }
+
+  &-track {
+    display: flex;
+    white-space: nowrap;
+    gap: $logo-margin;
+    width: fit-content;
+    animation: scroll $animation-duration linear infinite;
+  }
+}
+
+.logo {
+  &-item {
+    max-width: $logo-width;
+    flex-shrink: 0;
+
+    img {
+      max-height: $logo-height;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+  }
+}
+
+// Fix: Move exactly by one full loop width
+@keyframes scroll {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
