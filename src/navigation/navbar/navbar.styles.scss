@@ -1,0 +1,175 @@
+// Color Variables
+$primary-bg: #141424;
+$text-light: #F1F1F1;
+$logo-color: #F1F1F1;
+$hover-color: #00FF7F;
+$accent-blue: #3E92CC;
+$active-color: #00FF7F;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: $primary-bg;
+    color: $text-light;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  
+    // Styles for navbar at the top of the page
+    &--top {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+      background-color: $primary-bg;
+    }
+  
+    // Styles for navbar when scrolled
+    &--scrolled {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: $primary-bg;
+    }
+  
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+  
+    &__logo {
+      flex-shrink: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem; // Space between logo and text
+      transition: transform 0.3s ease;
+     
+      &:hover {
+        transform: scale(1.02);
+      }
+  
+      &--active {
+        opacity: 0.8;
+      }
+    }
+  
+    &__logo-image {
+      width: 50px; // Adjusted to match the logo in the image
+      height: 50px;
+      object-fit: contain;
+      object-position: center;
+    }
+  
+    &__logo-text {
+      color: $logo-color;
+      font-family: "Montserrat", sans-serif; // Use Montserrat font
+      font-size: 1.5rem; // Slightly reduced to match the image
+      font-weight: 600;
+      line-height: 1; // Ensure vertical alignment
+      margin-bottom: 3px; // Fine-tune vertical alignment
+      transition: color 0.3s ease;
+  
+      .navbar__logo:hover & {
+        color: $hover-color;
+      }
+    }
+  
+    &__navigation {
+      display: flex;
+      align-items: center; // Ensure vertical center
+      gap: 2rem; // Space between navigation items
+
+      @media (max-width: 640px) {
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        background-color: $primary-bg;
+        flex-direction: column;
+        align-items: center; // Center the navigation links vertically
+        justify-content: center; // Center the navigation links horizontally
+        padding: 1rem;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.3s ease, opacity 0.3s ease;
+
+        &--open {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  
+    &__link {
+      color: $text-light;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      position: relative;
+      line-height: 1; // Ensure consistent line height
+      font-family: "Montserrat", sans-serif; // Use Montserrat font for navigation links
+      
+      &:hover {
+        color: $hover-color;
+      }
+  
+      &--active {
+        color: $active-color;
+       
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $active-color;
+          animation: underline 0.3s ease-out;
+        }
+      }
+    }
+  }
+  
+  @keyframes underline {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  // Hamburger Styles
+  .hamburger {
+    display: none; // Hide by default on larger screens
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+
+    @media (max-width: 640px) {
+      display: flex;
+    }
+
+    &__line {
+      width: 25px;
+      height: 3px;
+      background-color: $text-light;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      &--open:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &--open:nth-child(2) {
+        opacity: 0;
+      }
+
+      &--open:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
