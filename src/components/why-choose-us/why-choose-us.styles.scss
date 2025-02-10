@@ -1,12 +1,30 @@
-// WhyChooseUs.module.scss
 .container {
-    padding: 40px;
-    background-color: rgba(20, 20, 36, 0.2)   ;
-    border-radius: 5px;
+  padding: 40px;
+  position: relative; // Ensure the gradient is contained within the section
+  overflow: hidden; // Hide any overflow from the gradient
+  background-color: rgba(20, 20, 36, 0.2); // Fallback background color
+  border-radius: 5px;
+
+  // Unnatural gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%; // Center the gradient vertically
+    left: 50%; // Center the gradient horizontally
+    transform: translate(-50%, -50%); // Center the gradient
+    width: 80%; // Larger width for an irregular shape
+    height: 65%; // Different height to create an elliptical shape
+    background: radial-gradient(
+      ellipse at 50% 50%, // Position the gradient off-center
+      rgba(255, 255, 255, 0.2) 0%, // Semi-transparent white at the center
+      rgba(255, 255, 255, 0) 70% // Fully transparent at the edges
+    );
+    z-index: 1; // Place it behind the content
   }
-  
-  .heading {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #CED8D8;
-  }
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #CED8D8;
+}
