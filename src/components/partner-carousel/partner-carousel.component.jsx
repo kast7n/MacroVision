@@ -11,14 +11,27 @@ const PartnerCarousel = () => {
     { id: 6, src: '/src/assets/images/components/partner-carousel/MacroVision6.png', alt: 'MacroVision 6' }
   ];
 
-  // Duplicate logos dynamically (seamless effect)
-  const duplicatedLogos = [...partners, ...partners];
+
 
   return (
-    <div className="carousel-container">
+    <div id='partners' className="carousel-container">
       <h2 className="heading">Our Partners</h2>
       <div className="carousel-track">
-        {duplicatedLogos.map((logo, index) => (
+        {partners.map((logo, index) => (
+          <div key={`${logo.id}-${index}`} className="logo-item">
+            <img src={logo.src} alt={logo.alt} />
+          </div>
+        ))}
+      </div>
+      <div className="carousel-track">
+        {partners.map((logo, index) => (
+          <div key={`${logo.id}-${index}`} className="logo-item">
+            <img src={logo.src} alt={logo.alt} />
+          </div>
+        ))}
+      </div>
+      <div className="carousel-track">
+        {partners.map((logo, index) => (
           <div key={`${logo.id}-${index}`} className="logo-item">
             <img src={logo.src} alt={logo.alt} />
           </div>

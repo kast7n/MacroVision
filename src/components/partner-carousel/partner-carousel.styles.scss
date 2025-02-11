@@ -1,50 +1,70 @@
-$animation-duration: 10s;
-$logo-width: 100px;
-$logo-height: 100px;
-$logo-margin: 2rem;
 
-.carousel {
-  &-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 1cap 0;
-    position: relative;
-  }
 
-  &-track {
-    display: flex;
-    white-space: nowrap;
-    gap: $logo-margin;
-    width: fit-content;
-    animation: scroll $animation-duration linear infinite;
-  }
-}
+.carousel-track{
 
-.logo {
-  &-item {
-    max-width: $logo-width;
-    flex-shrink: 0;
+    display: inline-block;
+    //flex-direction: row;
+    animation: 5s slide infinite linear;
+    
 
-    img {
-      max-height: $logo-height;
-      width: auto;
-      object-fit: contain;
-      filter: grayscale(100%);
-      transition: filter 0.3s;
-
-      &:hover {
-        filter: grayscale(0%);
-      }
+    .logo-item{
+        width: 100px;
+        display: inline-block;
+       // flex-direction:row;
+        overflow: hidden;
+        padding: 60px 0;
+        margin: 0 40px;
     }
-  }
+
+    img{
+        height: 100px;
+        width: auto;
+    }
 }
 
-// Fix: Move exactly by one full loop width
-@keyframes scroll {
-  from {
-    transform: translateX(30%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+
+
+.carousel-container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+
+    // &:hover .carousel-track{
+    //     animation-play-state: paused;
+    // }
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100%;
+        background: linear-gradient(to left,rgba(255,255,255,0), rgb(21, 21, 45));
+        content: "";
+        z-index: 2;
+    }
+    &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 100%;
+        border-radius: 5%;
+        background: linear-gradient(to right,rgba(255,255,255,0), rgb(31, 31, 87));
+        content: "";
+        z-index: 2;
+    }
+
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+    
 }

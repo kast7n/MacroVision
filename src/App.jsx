@@ -13,6 +13,7 @@ function App() {
       <Navbar></Navbar>
       <WhyChooseUs></WhyChooseUs>
       <PartnerCarousel></PartnerCarousel>
+      
     </>
   )
 }
