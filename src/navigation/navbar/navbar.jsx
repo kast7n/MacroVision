@@ -9,7 +9,7 @@ const Navbar = () => {
 
   // Sections configuration
   const sections = [
-    'home', 'about', 'services', 'WhyUs', 'partners'
+    'home', 'about', 'WhyUs', 'partners', 'FAQ'
   ];
 
   // Smooth scroll function
@@ -88,9 +88,9 @@ const Navbar = () => {
         <div className={`navbar__navigation ${isMenuOpen ? 'navbar__navigation--open' : ''}`}>
           {[
             { id: 'about', label: 'About' },
-            { id: 'services', label: 'Services' },
             { id: 'WhyUs', label: 'Why Us?' },
-            { id: 'partners', label: 'Our Partners' }
+            { id: 'partners', label: 'Our Partners' },
+            { id: 'FAQ', label: 'FAQ' }
           ].map(({ id, label }) => (
             <span 
               key={id}
