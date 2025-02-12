@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ExpandableCard from '../expandable-card/expandable-card.component';
 import './faq.styles.scss';
 
@@ -23,36 +23,64 @@ const faqData = [
       question: "How can I get a custom data analysis solution?",
       answer: "You can contact our team through our website or schedule a consultation. We assess your needs, define key metrics, and develop a tailored data analytics solution for your business."
     }
-  ];
-  
+];
 
 const FAQ = () => {
   const [expandedId, setExpandedId] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const faqRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Only trigger animation once
+        }
+      },
+      {
+        threshold: 0.2 // Trigger when 20% of the component is visible
+      }
+    );
+
+    if (faqRef.current) {
+      observer.observe(faqRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleToggle = (id) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
   return (
-    <div className="faq-container partial-component">
+    <div  id='FAQ'
+      ref={faqRef} 
+      className={`faq-container partial-component ${isVisible ? 'visible' : ''}`}
+    >
       <div className="faq-header">
         <h2 className="faq-header__title">Frequently Asked Questions</h2>
         <p className="faq-header__description">
           Find answers to common questions about our products and services.
         </p>
       </div>
-      
+     
       <div className="faq-items">
-        {faqData.map((item) => (
-          <div key={item.id} className="faq-item">
+        {faqData.map((item, index) => (
+          <div 
+            key={item.id} 
+            className="faq-item"
+            style={{ 
+              animationDelay: isVisible ? `${index * 0.1}s` : '0s'
+            }}
+          >
             <ExpandableCard
               title={item.question}
               description={item.answer}
               isExpanded={expandedId === item.id}
               onToggle={() => handleToggle(item.id)}
-            >
-              {item.answer}
-            </ExpandableCard>
+            />
           </div>
         ))}
       </div>

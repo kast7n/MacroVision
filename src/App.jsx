@@ -5,6 +5,7 @@ import WhyChooseUs from './components/why-choose-us/why-choose-us.component'
 import Navbar from './navigation/navbar/navbar'
 import PartnerCarousel from './components/partner-carousel/partner-carousel.component'
 import FAQ from './components/faq/faq.component'
+import TestimonialCarousel from './components/testimonial-carousel/testimonial-carousel.component'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
       <WhyChooseUs></WhyChooseUs>
       <PartnerCarousel></PartnerCarousel>
       <FAQ></FAQ>
+      <TestimonialCarousel></TestimonialCarousel>
       
     </>
   )

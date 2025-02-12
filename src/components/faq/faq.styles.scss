@@ -3,61 +3,94 @@
         display: inline-flex;
         margin: 2rem auto;
         padding: 40px;
-        position: relative; // Ensure the gradient is contained within the section
+        position: relative;
         border-radius: 5px;
         gap: 5rem;
-      
-      @media (max-width: 768px) {
-        padding: 1rem;
-        margin: 1rem auto;
-      }
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        
+        &.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+     
+        @media (max-width: 768px) {
+          padding: 1rem;
+          margin: 1rem auto;
+        }
     }
-  
+ 
     &-header {
       margin-bottom: 2rem;
       text-align: center;
-  
+ 
       &__title {
         font-size: 2rem;
         color: #F1F1F1;
         margin-bottom: 1rem;
         font-weight: 600;
-  
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        
+        .visible & {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.2s;
+        }
+ 
         @media (max-width: 768px) {
           font-size: 1.5rem;
         }
       }
-  
+ 
       &__description {
         color: #F1F1F1;
         font-size: 1.125rem;
         max-width: 36rem;
         margin: 0 auto;
-  
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        
+        .visible & {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.3s;
+        }
+ 
         @media (max-width: 768px) {
           font-size: 1rem;
         }
       }
     }
-  
+ 
     &-items {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-  
+ 
     &-item {
-      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      
+      .visible & {
+        opacity: 1;
+        transform: translateY(0);
+      }
       
       @for $i from 1 through 10 {
-        &:nth-child(#{$i}) {
-          animation-delay: $i * 0.1s;
+        .visible &:nth-child(#{$i}) {
+          transition-delay: #{0.3 + ($i * 0.1)}s;
         }
       }
     }
-  }
-  
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
@@ -66,4 +99,4 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+}

@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import './expandable-card.styles.scss';
 
-const ExpandableCard = ({title,description}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const ExpandableCard = ({ 
+  title, 
+  description, 
+  isExpanded, 
+  onToggle 
+}) => {
   return (
-    <div id='FAQ' className={`expandable-card ${isExpanded ? 'expandable-card--expanded' : ''}`}>
+    <div className="expandable-card">
       <div 
         className={`expandable-card__header ${
           isExpanded ? 'expandable-card__header--expanded' : ''
         }`}
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={onToggle}
       >
         <div className="expandable-card__header-content">
           <h3 className="expandable-card__title">{title}</h3>
@@ -29,10 +32,7 @@ const ExpandableCard = ({title,description}) => {
           isExpanded ? 'expandable-card__content--expanded' : ''
         }`}
       >
-        <p className="expandable-card__paragraph">
-            {description}
-        </p>
-
+        <p className="expandable-card__paragraph">{description}</p>
       </div>
     </div>
   );

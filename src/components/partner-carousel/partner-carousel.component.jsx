@@ -14,7 +14,7 @@ const PartnerCarousel = () => {
 
 
   return (
-    <div id='partners' className="carousel-container">
+    <div  className="carousel-container">
       <h2 className="heading">Our Partners</h2>
       <div className="carousel-track">
         {partners.map((logo, index) => (
