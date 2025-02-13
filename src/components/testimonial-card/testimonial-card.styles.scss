@@ -1,7 +1,7 @@
 .testimonial-card {
     $card-padding: 2rem;
     
-    background-color: white;
+    background-color: #141424; // Updated background color
     border-radius: 1rem;
     padding: $card-padding;
     transition: all 0.3s ease;
@@ -20,7 +20,7 @@
         content: '"';
         position: absolute;
         font-size: 4rem;
-        color: #e0e0e0;
+        color: #00ff99; // Updated color
         font-family: serif;
       }
       
@@ -45,19 +45,19 @@
       font-size: 1.25rem;
       font-weight: 600;
       margin: 0;
-      color: #333;
+      color: #ffffff; // Updated color
     }
     
     .testimonial-description {
       font-size: 1rem;
       line-height: 1.6;
-      color: #666;
+      color: #cccccc; // Updated color
       margin: 0;
     }
     
     .testimonial-date {
       font-size: 0.875rem;
-      color: #999;
+      color: #999999; // Updated color
       margin-top: auto;
     }
-  }
+}
