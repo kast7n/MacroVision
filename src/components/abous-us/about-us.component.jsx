@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './about-us.styles.scss';
 import { CheckCircle, CreditCard, MessageCircle } from 'lucide-react';
 
 const AboutBox = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const aboutBoxRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (aboutBoxRef.current) {
+      observer.observe(aboutBoxRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="about-box partial-component">
+    <div 
+      className={`about-box partial-component ${isVisible ? 'about-box-visible' : ''}`}
+      ref={aboutBoxRef}
+    >
       {/* Hero Section */}
       <div className="about-hero">
         <div className="about-hero-content">

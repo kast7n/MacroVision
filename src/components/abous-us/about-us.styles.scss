@@ -1,8 +1,16 @@
 .about-box {
-  background-color: #141424;
+  background-color: rgba(20, 20, 36, 0.2); // Updated background color to better match "Why Choose Us" section
   color: #fff;
   padding: 2.5rem;
   font-family: Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.about-box-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .about-hero {
     display: flex;
@@ -151,7 +159,7 @@
 
       .about-secondary-button {
         background-color: #00ff99;
-        color: #141424;
+        color: #2a2a3b; // Updated color to match background
         border: none;
         padding: 0.625rem 1.25rem;
         font-size: 1.2rem;
