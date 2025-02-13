@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import TestimonialCard from '../testimonial-card/testimonial-card.component';
-import './Testimonial-Carousel.styles.scss';
+import './testimonial-carousel.styles.scss';
 
 const testimonials = [
     {

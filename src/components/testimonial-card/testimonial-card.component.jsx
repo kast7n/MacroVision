@@ -1,5 +1,5 @@
 import React from 'react';
-import './Testimonial-Card.styles.scss';
+import './testimonial-card.styles.scss';
 
 const TestimonialCard = ({ name, description, date, isActive = false }) => {
   return (
