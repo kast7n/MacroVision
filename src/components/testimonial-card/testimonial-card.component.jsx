@@ -1,15 +1,13 @@
 import React from 'react';
 import './Testimonial-Card.styles.scss';
 
-const TestimonialCard = ({ name, text, date }) => {
+const TestimonialCard = ({ name, description, date, isActive = false }) => {
   return (
-    <div className="testimonial-card">
+    <div className={`testimonial-card ${isActive ? 'active' : ''}`}>
       <div className="testimonial-content">
-        <p className="quote">{text}</p>
-        <div className="info">
-          <p className="name">{name}</p>
-          <p className="date">{date}</p>
-        </div>
+        <h3 className="testimonial-name">{name}</h3>
+        <p className="testimonial-description">{description}</p>
+        <span className="testimonial-date">{date}</span>
       </div>
     </div>
   );
