@@ -45,6 +45,19 @@
         border-radius: 0.625rem;
       }
     }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+
+      .about-hero-content, .about-hero-image {
+        max-width: 100%;
+      }
+
+      .about-hero-image {
+        margin-top: 1.5rem;
+      }
+    }
   }
 
   .about-how-we-work {
@@ -100,21 +113,23 @@
       justify-content: space-between;
       background: rgba(255, 255, 255, 0.05);
       padding: 1.25rem;
+      width: fit-content;
       border-radius: 0.625rem;
 
       .about-steps {
         display: flex;
         align-content: center;
         gap: 1rem;
+        flex-wrap: nowrap; // Allow steps to wrap
 
         .about-step {
           background: rgba(255, 255, 255, 0.1);
           padding: 1.25rem;
           border-radius: 0.625rem;
           text-align: center;
-          flex: 1;
-          min-width: 15.625rem;
+          flex: 1 1 15.625rem; // Allow steps to grow and shrink
           position: relative;
+          width: 15rem;
           border: 1px solid rgba(255, 255, 255, 0.2);
 
           h3 {
@@ -141,6 +156,16 @@
           font-size: 2rem;
           color: #00ff99;
           margin: 0 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-steps {
+          flex-wrap: wrap; // Stack steps vertically on smaller screens
+        }
+
+        .about-step-arrow {
+          display: none; // Hide arrows on smaller screens
         }
       }
     }

@@ -87,6 +87,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className={`navbar__navigation ${isMenuOpen ? 'navbar__navigation--open' : ''}`}>
           {[
+            { id: 'home', label: 'Home' },
             { id: 'about', label: 'About Us' },
             { id: 'WhyUs', label: 'Why Us?' },
             { id: 'testimonials', label: 'Testimonials' },
