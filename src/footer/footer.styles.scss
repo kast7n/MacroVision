@@ -1,0 +1,53 @@
+.footer {
+  background-color: #141424;
+  color: #f1f1f1;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // Space between logo and text
+
+    img {
+      width: 50px; // Adjust the size of the logo as needed
+    }
+
+    .footer__text {
+      font-family: "Montserrat", sans-serif; // Use Montserrat font
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #f1f1f1;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: #f1f1f1;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: #00ff99;
+        transform: scale(1.2); // Make icons bigger on hover
+      }
+    }
+
+    .footer__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

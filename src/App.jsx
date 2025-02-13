@@ -7,19 +7,22 @@ import PartnerCarousel from './components/partner-carousel/partner-carousel.comp
 import FAQ from './components/faq/faq.component'
 import TestimonialCarousel from './components/testimonial-carousel/testimonial-carousel.component'
 import AboutBox from './components/abous-us/about-us.component'
+import Footer from './footer/footer'
+import ContactUs from './components/contact-us/contact-us.component'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Navbar></Navbar>
-      <WhyChooseUs></WhyChooseUs>
-      <PartnerCarousel></PartnerCarousel>
-      <FAQ></FAQ>
-      <AboutBox></AboutBox>
-      <TestimonialCarousel></TestimonialCarousel>
-      
+      <Navbar/>
+      <WhyChooseUs/>
+      <PartnerCarousel/>
+      <TestimonialCarousel/>
+      <FAQ/>
+      <AboutBox/>
+      <ContactUs/>
+      <Footer />
     </>
   )
 }

@@ -25,7 +25,7 @@ const AboutBox = () => {
   }, []);
 
   return (
-    <div id='about'
+    <div id='About'
       className={`about-box partial-component ${isVisible ? 'about-box-visible' : ''}`}
       ref={aboutBoxRef}
     >
