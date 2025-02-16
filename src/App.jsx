@@ -9,6 +9,7 @@ import TestimonialCarousel from './components/testimonial-carousel/testimonial-c
 import AboutBox from './components/abous-us/about-us.component'
 import Footer from './footer/footer'
 import ContactUs from './components/contact-us/contact-us.component'
+import LandingPage from './components/landing/landing.component'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar/>
+      <LandingPage/>
       <WhyChooseUs/>
       <PartnerCarousel/>
       <TestimonialCarousel/>

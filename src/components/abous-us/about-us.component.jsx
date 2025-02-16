@@ -24,6 +24,7 @@ const AboutBox = () => {
     return () => observer.disconnect();
   }, []);
 
+
   return (
     <div id='About'
       className={`about-box partial-component ${isVisible ? 'about-box-visible' : ''}`}
@@ -84,7 +85,7 @@ const AboutBox = () => {
       <div className="about-ready-to-go">
         <h2>Ready to go?</h2>
         <div className="about-buttons">
-          <button className="about-secondary-button" onClick={() => document.getElementById('contact-us').scrollIntoView()}>Contact Us</button>
+          <button className="about-secondary-button" onClick={() => document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' })}>Contact Us</button>
         </div>
       </div>
     </div>
