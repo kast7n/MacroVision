@@ -37,7 +37,7 @@ const AboutBox = () => {
           <p>Join Macro Vision and improve your business. Get in-depth insights, video updates, and expert analysis.</p>
         </div>
         <div className="about-hero-image">
-          <img src="src\assets\images\components\about-us\What_is_Data_Analysis.jpg" alt="Trading Illustration" />
+          <img src="./src/assets/images/components/about-us/What_is_Data_Analysis.jpg" alt="Trading Illustration" />
         </div>
       </div>
       
