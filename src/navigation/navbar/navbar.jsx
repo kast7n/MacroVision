@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.styles.scss';
-import LogoImage from '/src/assets/images/global/LogoNoText.png'; // Update with your actual logo path
+import LogoImage from '/src/assets/images/global/LogoNoText.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

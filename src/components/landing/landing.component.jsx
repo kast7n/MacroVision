@@ -2,6 +2,7 @@ import React from 'react';
 import './landing.styles.scss';
 import LandingReview from '../landing-review/landing-review.component';
 import VideoPlayer from '../video-player/video-player.component';
+import VideoFile from '/src/assets/videos/videoplayertest.webm'; // Import the video file
 
 const LandingPage = () => {
   const testimonialData = {
@@ -53,7 +54,7 @@ const LandingPage = () => {
         <div className="landing-page__media">
           {/* Video Section */}
           <div className="landing-page__video-container">
-            <VideoPlayer videoUrl="./src/assets/videos/videoplayertest.webm" />
+            <VideoPlayer videoUrl={VideoFile} />
           </div>
 
           {/* Testimonial Section */}

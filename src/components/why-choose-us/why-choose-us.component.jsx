@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import ImageTextSection from '../image-text/image-text-section.component';
 import './why-choose-us.styles.scss';
 
+import ApplicationImage from '/src/assets/images/components/why-choose-us/application.webp';
+import ApplicationImage2 from '/src/assets/images/components/why-choose-us/application2.webp';
+import ApplicationImage3 from '/src/assets/images/components/why-choose-us/application3.webp';
+
 const WhyChooseUs = () => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
@@ -35,7 +39,7 @@ const WhyChooseUs = () => {
             <h2 className="heading">Why Choose Us?</h2>
    
             <ImageTextSection
-                imageUrl="./src/assets/images/components/why-choose-us/application.webp"
+                imageUrl={ApplicationImage}
                 title="Expert Team"
                 description="Our team of experts is dedicated to delivering top-notch solutions tailored to your needs."
                 layout="image-text"
@@ -43,7 +47,7 @@ const WhyChooseUs = () => {
             />
    
             <ImageTextSection
-                imageUrl="./src/assets/images/components/why-choose-us/application2.webp"
+                imageUrl={ApplicationImage2}
                 title="Innovative Solutions"
                 description="We leverage the latest technologies to provide innovative and scalable solutions for your business."
                 layout="text-image"
@@ -51,7 +55,7 @@ const WhyChooseUs = () => {
             />
    
             <ImageTextSection
-                imageUrl="./src/assets/images/components/why-choose-us/application3.webp"
+                imageUrl={ApplicationImage3}
                 title="Customer-Centric Approach"
                 description="We prioritize your needs and ensure seamless communication throughout the project lifecycle."
                 layout="image-text"

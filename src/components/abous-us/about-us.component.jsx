@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './about-us.styles.scss';
 import { CheckCircle, CreditCard, MessageCircle } from 'lucide-react';
+import DataAnalysisImage from '/src/assets/images/components/about-us/What_is_Data_Analysis.jpg'; // Import the image
 
 const AboutBox = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +25,6 @@ const AboutBox = () => {
     return () => observer.disconnect();
   }, []);
 
-
   return (
     <div id='About'
       className={`about-box partial-component ${isVisible ? 'about-box-visible' : ''}`}
@@ -37,7 +37,7 @@ const AboutBox = () => {
           <p>Join Macro Vision and improve your business. Get in-depth insights, video updates, and expert analysis.</p>
         </div>
         <div className="about-hero-image">
-          <img src="./src/assets/images/components/about-us/What_is_Data_Analysis.jpg" alt="Trading Illustration" />
+          <img src={DataAnalysisImage} alt="Trading Illustration" />
         </div>
       </div>
       
