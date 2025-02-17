@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.styles.scss';
 import { Linkedin, Instagram } from 'lucide-react';
-import LogoImage from '/src/assets/images/global/MacroVision 2025-10.png'; // Update with your actual logo path
+import LogoImage from '/src/assets/images/global/LogoNoText.png'; // Update with your actual logo path
 
 const Footer = () => {
   return (
