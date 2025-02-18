@@ -1,18 +1,32 @@
+// Color variables
+$primary-color: #86C232;
+$secondary-color: #86C232;
+$background-color: rgba(255, 255, 255, 0.01);
+$border-color: #474B4F;
+$hover-color: #6B6E70;
+$text-color: #F2F2F2;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+$active-box-shadow-color: rgba(0, 0, 0, 0.15);
+$quote-color: #86C232;
+$name-color: #F2F2F2;
+$description-color: #cccccc;
+$date-color: #999999;
+
 .testimonial-card {
     $card-padding: 2rem;
     
-    background-color: #141424; // Updated background color
+    background-color: $background-color;
     border-radius: 1rem;
     padding: $card-padding;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px $box-shadow-color;
 
     max-width: 400px;
     position: relative;
     
     &.active {
       transform: scale(1.05);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 12px $active-box-shadow-color;
       z-index: 2;
       
       &::before,
@@ -20,7 +34,7 @@
         content: '"';
         position: absolute;
         font-size: 4rem;
-        color: #00ff99; // Updated color
+        color: $quote-color;
         font-family: serif;
       }
       
@@ -45,19 +59,19 @@
       font-size: 1.25rem;
       font-weight: 600;
       margin: 0;
-      color: #ffffff; // Updated color
+      color: $name-color;
     }
     
     .testimonial-description {
       font-size: 1rem;
       line-height: 1.6;
-      color: #cccccc; // Updated color
+      color: $description-color;
       margin: 0;
     }
     
     .testimonial-date {
       font-size: 0.875rem;
-      color: #999999; // Updated color
+      color: $date-color;
       margin-top: auto;
     }
 }

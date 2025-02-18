@@ -1,28 +1,114 @@
 // Color variables
-$primary-color: #00ff99;
-$text-color: #fff;
+$primary-color: #86C232;
+$secondary-color: #61892F;
+$background-color: #222629;
+$border-color: #474B4F;
+$hover-color: #6B6E70;
+$text-color: #F2F2F2;
 $box-background-color: rgba(255, 255, 255, 0.05);
 $step-background-color: rgba(255, 255, 255, 0.1);
 $step-border-color: rgba(255, 255, 255, 0.2);
-$button-hover-color: #00cc77;
+$button-hover-color: #6B6E70;
 $button-text-color: #2a2a3b;
 
-// Rest of the styles remain the same until .about-steps-container
 .about-box {
-  // Previous styles remain unchanged...
   color: $text-color;
   padding: 2.5rem;
   font-family: Arial, sans-serif;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  background-color: $background-color;
 
   &.about-box-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  // Previous styles remain unchanged until .about-steps-container...
+  .about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 0;
+
+    .about-hero-content {
+      max-width: 50%;
+      
+      h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        
+        .about-highlight {
+          color: $primary-color;
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-top: 0.625rem;
+        opacity: 0.8;
+      }
+    }
+
+    .about-hero-image {
+      max-width: 40%;
+
+      img {
+        width: 100%;
+        border-radius: 0.625rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+
+      .about-hero-content, .about-hero-image {
+        max-width: 100%;
+      }
+
+      .about-hero-image {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  .about-how-we-work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: $box-background-color;
+    border-radius: 0.625rem;
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      
+      .about-highlight {
+        color: $primary-color;
+      }
+    }
+
+    .about-description {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 80%;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+      
+      .about-description {
+        max-width: 100%;
+      }
+    }
+  }
 
   .about-get-started {
     text-align: left;
@@ -119,16 +205,26 @@ $button-text-color: #2a2a3b;
             transform: rotate(90deg);
             margin: 0;
             height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
+            width: 100%;
+            
+            &::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 1px;
+              background: $step-border-color;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              z-index: -1;
+            }
           }
         }
       }
     }
   }
 
-  // Rest of the styles remain unchanged...
   .about-ready-to-go {
     text-align: center;
     margin-top: 2.5rem;
