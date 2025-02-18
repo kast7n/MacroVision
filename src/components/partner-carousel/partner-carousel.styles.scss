@@ -1,30 +1,36 @@
+// Color variables
+$primary-color: #00FF7F;
+$text-color: #F1F1F1;
+$background-color: rgba(14, 19, 36, 0.29);
+$gradient-start: rgba(255, 255, 255, 0);
+$gradient-end-left: rgb(21, 21, 45);
+$gradient-end-right: rgb(31, 31, 87);
 
+.heading {
+    opacity: 1;
+    font-size: 2rem;
+    color: $text-color;
+}
 
-.carousel-track{
-
+.carousel-track {
     display: inline-block;
-    //flex-direction: row;
     animation: 15s slide infinite linear;
-    
 
-    .logo-item{
+    .logo-item {
         width: 100px;
         display: inline-block;
-       // flex-direction:row;
         overflow: hidden;
         padding: 60px 0;
         margin: 0 40px;
     }
 
-    img{
+    img {
         height: 100px;
         width: auto;
     }
 }
 
-
-
-.carousel-container{
+.carousel-container {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -32,19 +38,17 @@
     position: relative;
     overflow: hidden;
 
-    // &:hover .carousel-track{
-    //     animation-play-state: paused;
-    // }
     &:before {
         position: absolute;
         top: 0;
         left: 0;
         width: 50px;
         height: 100%;
-        background: linear-gradient(to left,rgba(255,255,255,0), rgb(21, 21, 45));
+        background: linear-gradient(to left, $gradient-start, $gradient-end-left);
         content: "";
         z-index: 2;
     }
+
     &:after {
         position: absolute;
         top: 0;
@@ -52,11 +56,10 @@
         width: 50px;
         height: 100%;
         border-radius: 5%;
-        background: linear-gradient(to right,rgba(255,255,255,0), rgb(31, 31, 87));
+        background: linear-gradient(to right, $gradient-start, $gradient-end-right);
         content: "";
         z-index: 2;
     }
-
 }
 
 @keyframes slide {
@@ -66,5 +69,4 @@
     to {
         transform: translateX(-100%);
     }
-    
 }

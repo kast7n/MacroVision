@@ -1,189 +1,191 @@
 .testimonial-carousel-wrapper {
-    $transition-duration: 0.5s;
-    
-    position: relative;
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 3rem 0;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    
-    &.testimonial-carousel-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .testimonial-carousel-container {
-      position: relative;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      overflow: hidden; // Prevent cards from showing underneath
-    }
+  $transition-duration: 0.5s;
   
-    .testimonial-carousel-track {
-      position: relative;
-      width: 100%; // Changed from fixed width to full width
-      height: 100%;
-      perspective: 1500px; // Reduced perspective for less dramatic effect
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  
+  &.testimonial-carousel-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .testimonial-carousel-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    overflow: hidden; // Prevent cards from showing underneath
+  }
+
+  .testimonial-carousel-track {
+    position: relative;
+    width: 100%; // Changed from fixed width to full width
+    height: 100%;
+    perspective: 1500px; // Reduced perspective for less dramatic effect
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  // Arrow styles remain the same...
+  .testimonial-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none; // Make the background transparent
+    border: none;
+    width: auto; // Remove fixed width
+    height: auto; // Remove fixed height
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+    
+    &-left {
+      left: 5%;
     }
     
-    // Arrow styles remain the same...
-    .testimonial-carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none; // Make the background transparent
+    &-right {
+      right: 5%;
+    }
+    
+    &:hover:not(:disabled) {
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:active:not(:disabled) {
+      transform: translateY(-50%) scale(0.95);
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+  
+  .testimonial-carousel-slide {
+    position: absolute;
+    width: 350px;
+    transform-origin: center;
+    backface-visibility: hidden;
+    transition: all $transition-duration cubic-bezier(0.4, 0, 0.2, 1);
+    
+    // Hide slides that are too far off to the sides
+    &[style*="--slide-offset: -2"],
+    &[style*="--slide-offset: 2"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    // Left slide
+    &[style*="--slide-offset: -1"] {
+      transform: translateX(-110%);
+      opacity: 0.7;
+      scale: 0.85;
+    }
+
+    // Center slide
+    &[style*="--slide-offset: 0"] {
+      transform: translateX(0%) 
+                 rotateY(0);
+      opacity: 1;
+      scale: 1;
+      z-index: 2;
+    }
+
+    // Right slide
+    &[style*="--slide-offset: 1"] {
+      transform: translateX(110%);
+      opacity: 0.7;
+      scale: 0.85;
+    }
+  }
+  
+  // Rest of the styles remain the same...
+  .testimonial-carousel-indicators {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    .testimonial-carousel-indicator {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
       border: none;
-      width: auto; // Remove fixed width
-      height: auto; // Remove fixed height
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: #e0e0e0;
       cursor: pointer;
-      transition: all 0.2s ease;
-      z-index: 5;
+      padding: 0;
+      transition: all $transition-duration ease;
       
+      &.testimonial-carousel-indicator-active {
+        background-color: #00ff99; // Updated color
+        transform: scale(1.2);
+      }
+      
+      &:hover:not(.testimonial-carousel-indicator-active) {
+        background-color: #00cc77; // Updated color
+      }
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .testimonial-carousel-slide {
+      width: 320px;
+      
+      &[style*="--slide-offset: -1"] {
+        transform: translateX(-110%) 
+                   rotateY(15deg);
+      }
+  
+      &[style*="--slide-offset: 1"] {
+        transform: translateX(10%) 
+                   rotateY(-15deg);
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial-carousel-track {
+      width: 100%; // Ensure the track takes full width
+      display: flex;
+      justify-content: center; // Center the track content
+    }
+
+    .testimonial-carousel-slide {
+      width: 90%; // Adjust width to fit within the screen
+      max-width: 280px; // Ensure it doesn't exceed a certain width
+      
+      &[style*="--slide-offset: -1"],
+      &[style*="--slide-offset: 1"] {
+        display: none;
+      }
+      
+      &[style*="--slide-offset: 0"] {
+        position: relative;
+        transform: none;
+        margin: 0 auto;
+      }
+    }
+    
+    .testimonial-carousel-arrow {
       &-left {
-        left: 5%;
+        left: 0;
       }
       
       &-right {
-        right: 5%;
-      }
-      
-      &:hover:not(:disabled) {
-        transform: translateY(-50%) scale(1.1);
-      }
-      
-      &:active:not(:disabled) {
-        transform: translateY(-50%) scale(0.95);
-      }
-      
-      &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
+        right: 0;
       }
     }
-    
-    .testimonial-carousel-slide {
-      position: absolute;
-      width: 350px;
-      transform-origin: center;
-      backface-visibility: hidden;
-      transition: all $transition-duration cubic-bezier(0.4, 0, 0.2, 1);
-      
-      // Hide slides that are too far off to the sides
-      &[style*="--slide-offset: -2"],
-      &[style*="--slide-offset: 2"] {
-        opacity: 0;
-        pointer-events: none;
-      }
-  
-      // Left slide
-      &[style*="--slide-offset: -1"] {
-        transform: translateX(-110%);
-        opacity: 0.7;
-        scale: 0.85;
-      }
-  
-      // Center slide
-      &[style*="--slide-offset: 0"] {
-        transform: translateX(0%) 
-                   rotateY(0);
-        opacity: 1;
-        scale: 1;
-        z-index: 2;
-      }
-  
-      // Right slide
-      &[style*="--slide-offset: 1"] {
-        transform: translateX(110%);
-        opacity: 0.7;
-        scale: 0.85;
-      }
-    }
-    
-    // Rest of the styles remain the same...
-    .testimonial-carousel-indicators {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 2rem;
-      
-      .testimonial-carousel-indicator {
-        width: 0.75rem;
-        height: 0.75rem;
-        border-radius: 50%;
-        border: none;
-        background-color: #e0e0e0;
-        cursor: pointer;
-        padding: 0;
-        transition: all $transition-duration ease;
-        
-        &.testimonial-carousel-indicator-active {
-          background-color: #00ff99; // Updated color
-          transform: scale(1.2);
-        }
-        
-        &:hover:not(.testimonial-carousel-indicator-active) {
-          background-color: #00cc77; // Updated color
-        }
-      }
-    }
-    
-    @media (max-width: 1200px) {
-      .testimonial-carousel-slide {
-        width: 320px;
-        
-        &[style*="--slide-offset: -1"] {
-          transform: translateX(-110%) 
-                     rotateY(15deg);
-        }
-    
-        &[style*="--slide-offset: 1"] {
-          transform: translateX(10%) 
-                     rotateY(-15deg);
-        }
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .testimonial-carousel-track {
-        width: 280px;
-      }
-  
-      .testimonial-carousel-slide {
-        width: 280px;
-        
-        &[style*="--slide-offset: -1"],
-        &[style*="--slide-offset: 1"] {
-          display: none;
-        }
-        
-        &[style*="--slide-offset: 0"] {
-          position: relative;
-          transform: none;
-          width: 90%;
-          margin: 0 auto;
-        }
-      }
-      
-      .testimonial-carousel-arrow {
-        &-left {
-          left: 0;
-        }
-        
-        &-right {
-          right: 0;
-        }
-      }
-    }
+  }
 }

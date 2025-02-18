@@ -1,65 +1,73 @@
+// Color variables
+$border-color: #e2e8f0;
+$background-color: rgba(14, 19, 36, 0.29);
+$hover-border-color: #00FF7F;
+$text-color: #F1F1F1;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
 .expandable-card {
     width: 100%;
     max-width: 32rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid $border-color;
     border-radius: 0.5rem;
-    background-color: rgba(14, 19, 36, 0.29);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    background-color: $background-color;
+    box-shadow: 0 1px 3px 0 $box-shadow-color;
 
     &:hover, &--expanded {
-      border-color: #00FF7F;
+      border-color: $hover-border-color;
     }
+
     &__header {
       padding: 1rem;
       cursor: pointer;
       user-select: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.8s ease;
-  
+
       &--expanded {
-        border-color: #00FF7F;
+        border-color: $hover-border-color;
       }
-  
+
       &-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
     }
-  
+
     &__title {
       font-size: 1.125rem;
       font-weight: 600;
       margin: 0;
     }
-  
+
     &__icon {
       transition: transform 0.8s ease;
-  
+
       &--expanded {
         transform: rotate(180deg);
       }
     }
-  
+
     &__content {
       overflow: hidden;
-      transition: max-height 0.8s ease, padding 0.8s ease;
       max-height: 0;
       padding: 0 1rem;
-  
+
       &--expanded {
         max-height: 400px;
         padding: 1rem;
+        transition: max-height 0.8s ease, padding 0.8s ease;
       }
     }
-  
+
     &__paragraph {
       margin: 0 0 1rem 0;
-      color: #F1F1F1;
+      color: $text-color;
       line-height: 1.5;
-  
+
       &:last-child {
         margin-bottom: 0;
       }
     }
-  }
+}

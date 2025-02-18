@@ -1,14 +1,21 @@
+// Color variables
+$background-color: #1118271a;
+$star-color: #fbbf24; // Amber/yellow color for stars
+$text-color: #ffffff;
+$placeholder-color: #e5e7eb;
+$author-title-color: #6b7280;
+
 .landing-review {
     $card-padding: 1.5rem;
     $border-radius: 0.75rem;
     $transition-duration: 0.2s;
   
-    background-color: #1118271a;
-
+    background-color: $background-color;
     border-radius: $border-radius;
     padding: $card-padding;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform $transition-duration ease-in-out;
+    overflow-x: hidden; // Prevent horizontal overflow
   
     &:hover {
       transform: translateY(-2px);
@@ -24,14 +31,14 @@
     &__star {
       width: 1.5rem;
       height: 1.5rem;
-      fill: #fbbf24; // Amber/yellow color for stars
+      fill: $star-color;
     }
   
     // Testimonial content
     &__content {
       font-size: 1rem;
       line-height: 1.6;
-      color: #ffffff; // Updated color
+      color: $text-color;
       margin-bottom: 1.5rem;
       font-weight: 400;
     }
@@ -59,7 +66,7 @@
     &__author-placeholder {
       width: 100%;
       height: 100%;
-      background-color: #e5e7eb;
+      background-color: $placeholder-color;
       border-radius: 50%;
     }
   
@@ -71,13 +78,13 @@
     &__author-name {
       font-size: 1rem;
       font-weight: 600;
-      color: #ffffff; // Updated color
+      color: $text-color;
       margin: 0;
     }
   
     &__author-title {
       font-size: 0.875rem;
-      color: #6b7280; // Updated color
+      color: $author-title-color;
       margin: 0;
     }
   
@@ -102,4 +109,4 @@
         font-size: 0.813rem;
       }
     }
-  }
+}

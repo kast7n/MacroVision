@@ -84,9 +84,6 @@ const AboutBox = () => {
       {/* Ready To Go Section */}
       <div className="about-ready-to-go">
         <h2>Ready to go?</h2>
-        <div className="about-buttons">
-          <button className="about-secondary-button" onClick={() => document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' })}>Contact Us</button>
-        </div>
       </div>
     </div>
   );

@@ -2,7 +2,14 @@ import React from 'react';
 import './landing.styles.scss';
 import LandingReview from '../landing-review/landing-review.component';
 import VideoPlayer from '../video-player/video-player.component';
-import VideoFile from '/src/assets/videos/videoplayertest.webm'; // Import the video file
+import VideoFile from '/src/assets/videos/videoplayertest.webm';
+
+import MacroVision1 from '/src/assets/images/components/partner-carousel/MacroVision1.png';
+import MacroVision2 from '/src/assets/images/components/partner-carousel/MacroVision2.png';
+import MacroVision3 from '/src/assets/images/components/partner-carousel/MacroVision3.png';
+import MacroVision4 from '/src/assets/images/components/partner-carousel/MacroVision4.png';
+import MacroVision5 from '/src/assets/images/components/partner-carousel/MacroVision5.png';
+import MacroVision6 from '/src/assets/images/components/partner-carousel/MacroVision6.png';
 
 const LandingPage = () => {
   const testimonialData = {
@@ -20,7 +27,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-page">
+    <div className="landing-page partial-component">
       <div className="landing-page__container">
         {/* Left Column - Text Content */}
         <div className="landing-page__content">
@@ -48,6 +55,19 @@ const LandingPage = () => {
           <button className="landing-page__cta-button" onClick={scrollToContact}>
             Contact Us
           </button>
+
+          {/* As Seen In Section */}
+          <div className="landing-page__as-seen">
+            <h2 className="landing-page__as-seen-title">As Seen In</h2>
+            <div className="landing-page__as-seen-logos">
+              <img src={MacroVision1} alt="MacroVision1" />
+              <img src={MacroVision2} alt="MacroVision2" />
+              <img src={MacroVision3} alt="MacroVision3" />
+              <img src={MacroVision4} alt="MacroVision4" />
+              <img src={MacroVision5} alt="MacroVision5" />
+              <img src={MacroVision6} alt="MacroVision6" />
+            </div>
+          </div>
         </div>
 
         {/* Right Column - Video and Testimonial */}
@@ -63,6 +83,8 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 };

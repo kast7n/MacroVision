@@ -1,8 +1,13 @@
+// Color variables
+$background-color: #ffffff;
+$heading-color: #CED8D8;
+$gradient-start: rgba(255, 255, 255, 0.15);
+$gradient-end: rgba(255, 255, 255, 0);
+
 .container {
   padding: 40px;
   position: relative;
   overflow: hidden;
-  background-color: rgba(20, 20, 36, 0.2);
   border-radius: 5px;
   opacity: 0;
   transform: translateY(30px);
@@ -20,21 +25,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 70%;
     background: radial-gradient(
       ellipse at 50% 50%,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 40%
+      $gradient-start 0%,
+      $gradient-end 50%
     );
-    z-index: -0;
+    z-index: -1;
   }
 }
 
 .heading {
   text-align: center;
   margin-bottom: 40px;
-  color: #CED8D8;
+  color: $heading-color;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;

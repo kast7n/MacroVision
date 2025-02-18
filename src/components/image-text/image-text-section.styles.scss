@@ -1,4 +1,7 @@
 // ImageTextSection.module.scss
+// Color variables
+$text-color: #CED8D8;
+
 .section {
     display: flex;
     align-items: center;
@@ -30,12 +33,26 @@
   
       h2 {
         margin-bottom: 16px;
-        color: #CED8D8;
+        color: $text-color;
       }
   
       p {
         line-height: 1.6;
-        color: #CED8D8;
+        color: $text-color;
       }
     }
-  }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+
+      &.imageText,
+      &.textImage {
+        flex-direction: column;
+      }
+
+      .imageContainer,
+      .textContainer {
+        margin: 20px 0;
+      }
+    }
+}

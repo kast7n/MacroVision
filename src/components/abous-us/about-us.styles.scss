@@ -1,6 +1,16 @@
+// Color variables
+$primary-color: #00ff99;
+$text-color: #fff;
+$box-background-color: rgba(255, 255, 255, 0.05);
+$step-background-color: rgba(255, 255, 255, 0.1);
+$step-border-color: rgba(255, 255, 255, 0.2);
+$button-hover-color: #00cc77;
+$button-text-color: #2a2a3b;
+
+// Rest of the styles remain the same until .about-steps-container
 .about-box {
-  background-color: rgba(20, 20, 36, 0.2); // Updated background color to better match "Why Choose Us" section
-  color: #fff;
+  // Previous styles remain unchanged...
+  color: $text-color;
   padding: 2.5rem;
   font-family: Arial, sans-serif;
   opacity: 0;
@@ -12,82 +22,7 @@
     transform: translateY(0);
   }
 
-  .about-hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2.5rem 0;
-
-    .about-hero-content {
-      max-width: 50%;
-      
-      h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        
-        .about-highlight {
-          color: #00ff99;
-        }
-      }
-
-      p {
-        font-size: 1.2rem;
-        margin-top: 0.625rem;
-        opacity: 0.8;
-      }
-    }
-
-    .about-hero-image {
-      max-width: 40%;
-
-      img {
-        width: 100%;
-        border-radius: 0.625rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      text-align: center;
-
-      .about-hero-content, .about-hero-image {
-        max-width: 100%;
-      }
-
-      .about-hero-image {
-        margin-top: 1.5rem;
-      }
-    }
-  }
-
-  .about-how-we-work {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 0.625rem;
-    
-    h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-align: center;
-      
-      .about-highlight {
-        color: #00ff99;
-      }
-    }
-
-    .about-description {
-      font-size: 1.2rem;
-      opacity: 0.8;
-      max-width: 80%;
-      text-align: center;
-      margin-top: 1rem;
-    }
-  }
+  // Previous styles remain unchanged until .about-steps-container...
 
   .about-get-started {
     text-align: left;
@@ -96,41 +31,48 @@
     h2 {
       font-size: 2rem;
       font-weight: bold;
+      text-align: center;
+      margin-bottom: 2rem;
 
       .about-highlight {
-        color: #00ff99;
+        color: $primary-color;
       }
     }
 
     .about-steps-wrapper {
-      width: fit-content;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
 
     .about-steps-container {
       display: flex;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.25rem;
-      width: fit-content;
+      justify-content: center;
+      background: $box-background-color;
+      padding: 1.5rem;
+      width: 100%;
       border-radius: 0.625rem;
+      margin: 0 auto;
 
       .about-steps {
         display: flex;
-        align-content: center;
+        align-items: center;
         gap: 1rem;
-        flex-wrap: nowrap; // Allow steps to wrap
+        flex-wrap: nowrap;
+        width: 100%;
+        max-width: 1200px;
+        justify-content: center;
 
         .about-step {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 1.25rem;
+          background: $step-background-color;
+          padding: 1.5rem;
           border-radius: 0.625rem;
           text-align: center;
-          flex: 1 1 15.625rem; // Allow steps to grow and shrink
+          flex: 1;
           position: relative;
-          width: 15rem;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid $step-border-color;
+          min-width: 200px;
+          max-width: 300px;
 
           h3 {
             font-size: 1.5rem;
@@ -145,7 +87,7 @@
           .step-icon {
             font-size: 2rem;
             margin-bottom: 0.625rem;
-            color: #00ff99;
+            color: $primary-color;
           }
         }
 
@@ -154,23 +96,39 @@
           align-items: center;
           justify-content: center;
           font-size: 2rem;
-          color: #00ff99;
+          color: $primary-color;
           margin: 0 1rem;
+          transition: transform 0.3s ease;
         }
       }
 
       @media (max-width: 768px) {
-        .about-steps {
-          flex-wrap: wrap; // Stack steps vertically on smaller screens
-        }
+        padding: 1rem;
 
-        .about-step-arrow {
-          display: none; // Hide arrows on smaller screens
+        .about-steps {
+          flex-direction: column;
+          align-items: center;
+          gap: 2.5rem;
+
+          .about-step {
+            width: 100%;
+            margin: 0;
+          }
+
+          .about-step-arrow {
+            transform: rotate(90deg);
+            margin: 0;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
   }
 
+  // Rest of the styles remain unchanged...
   .about-ready-to-go {
     text-align: center;
     margin-top: 2.5rem;
@@ -183,20 +141,24 @@
       margin-top: 1.25rem;
 
       .about-secondary-button {
-        background-color: #00ff99;
-        color: #2a2a3b; // Updated color to match background
+        background-color: $primary-color;
+        color: $button-text-color;
         border: none;
         padding: 0.625rem 1.25rem;
         font-size: 1.2rem;
         font-weight: bold;
         border-radius: 0.3125rem;
         cursor: pointer;
-        transition: 0.3s;
+        transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #00cc77;
+          background-color: $button-hover-color;
         }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
 }

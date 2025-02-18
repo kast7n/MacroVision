@@ -1,33 +1,43 @@
+// Color variables
+$primary-color: #00FF7F;
+$text-color: #F1F1F1;
+$border-color: #e2e8f0;
+$background-color: rgba(14, 19, 36, 0.29);
+
 .faq {
     &-container {
-        display: inline-flex;
+        display: grid;
+        grid-template-columns: 2fr 2fr; // Two columns: one for the header and one for the items
+        gap: 20rem;
         margin: 2rem auto;
         padding: 40px;
         position: relative;
         border-radius: 5px;
-        gap: 5rem;
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        
+
         &.visible {
           opacity: 1;
           transform: translateY(0);
         }
      
         @media (max-width: 768px) {
+          grid-template-columns: 1fr; // Single column layout on mobile
           padding: 1rem;
           margin: 1rem auto;
+          gap: 2rem; // Adjust gap for mobile
         }
     }
  
     &-header {
       margin-bottom: 2rem;
-      text-align: center;
+      text-align: left; // Align text to the left
+      grid-column: 1 / 2; // Place in the first column
  
       &__title {
         font-size: 2rem;
-        color: #F1F1F1;
+        color: $text-color;
         margin-bottom: 1rem;
         font-weight: 600;
         opacity: 0;
@@ -46,10 +56,10 @@
       }
  
       &__description {
-        color: #F1F1F1;
+        color: $text-color;
         font-size: 1.125rem;
         max-width: 36rem;
-        margin: 0 auto;
+        margin: 0;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -68,11 +78,17 @@
  
     &-items {
       display: flex;
-      flex-direction: column;
+      flex-direction: column; // Display items in a column
       gap: 1rem;
+      grid-column: 2 / 3; // Place in the second column
+      
+      @media (max-width: 768px) {
+        grid-column: 1 / 2; // Place in the first column on mobile
+      }
     }
  
     &-item {
+      width: 100%; // Take up full width
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
