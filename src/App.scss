@@ -5,8 +5,8 @@ $primary-color: #86C232;
 
 .partial-component {
   max-width: 1280px;
-  margin: 4rem auto;
-  padding: 3rem 2rem;
+  margin: 3rem auto 2rem auto !important;
+  padding: 2rem 2rem 0.5rem 2rem;
   text-align: center;
   overflow-x: hidden;
 }
