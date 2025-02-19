@@ -9,15 +9,17 @@ $dark-mode-text: #cbd5e1; // Slate-300
 
 .landing-page {
     $max-width: 1280px;
-    $content-padding: 0.5rem;
-
     width: 100%;
     max-width: $max-width;
     min-height: fit-content;
-    padding: $content-padding;
-    margin: 3rem auto; // Center the container
-    overflow-x: hidden; // Prevent horizontal overflow
+    margin-left: auto;
+    margin-right: auto;
 
+    overflow-x:hidden; // Prevent horizontal overflow
+    @media (max-width: 768px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
     &__container {
       max-width: $max-width;
       margin: 0 auto;
@@ -25,20 +27,59 @@ $dark-mode-text: #cbd5e1; // Slate-300
       flex-direction: column;
       gap: 3rem; // Increased gap
       
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;  /* Increased size for more irregular edges */
+    height: 65%; 
+    background: radial-gradient(
+      ellipse at center,
+      rgba(34, 38, 41, 0.8) 10%,
+      rgba(84, 94, 90, 0.15) 40%,
+      rgba(63, 105, 95, 0.08) 65%,
+      rgba(0, 255, 128, 0) 90%
+    );
+    filter: blur(15px) drop-shadow(0 0 20px rgba(63, 105, 95, 0.3));
+    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;  /* Irregular shape */
+    opacity: 0.85;
+    mix-blend-mode: screen;
+    z-index: 0;
+    animation: fogPulse 8s infinite alternate ease-in-out;
+  }
+  
+  @keyframes fogPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      filter: blur(15px) drop-shadow(0 0 20px rgba(63, 105, 95, 0.3));
+    }
+    50% {
+      transform: translate(-52%, -48%) scale(1.05);
+      filter: blur(18px) drop-shadow(0 0 25px rgba(63, 105, 95, 0.4));
+    }
+    100% {
+      transform: translate(-49%, -51%) scale(0.98);
+      filter: blur(16px) drop-shadow(0 0 22px rgba(63, 105, 95, 0.35));
+    }
+  }
       @media (min-width: 768px) {
         flex-direction: row;
         gap: 1rem;
         align-items: flex-start;
+        
       }
+
     }
-  
+
     &__content {
       display: flex;
       flex-direction: column;
       gap: 2rem; // Increased gap
       flex: 1;
     }
-  
+
     &__title {
       font-size: 2rem;
       font-weight: 700;
@@ -55,7 +96,7 @@ $dark-mode-text: #cbd5e1; // Slate-300
         font-size: 2rem;
       }
     }
-  
+
     &__text-content {
       display: flex;
       flex-direction: column;
@@ -74,10 +115,10 @@ $dark-mode-text: #cbd5e1; // Slate-300
         }
       }
     }
-  
+
     &__cta-button {
       display: inline-block;
-      padding: 0.75rem 5.5rem; // Make the button smaller
+      padding: 1.25rem 7.5rem; // Make the button smaller
       background-color: #86C232;
       color: $white;
       font-weight: 600;
@@ -87,7 +128,8 @@ $dark-mode-text: #cbd5e1; // Slate-300
       transition: background-color 0.2s ease-in-out;
       margin: 0 auto;
       margin-top: 1rem; // Lower the button a bit
-      width: auto;
+      width: 75%;
+      z-index: 1; // Ensure the button is on top of the fog effect
   
       &:hover {
         background-color: #61892F;
@@ -101,6 +143,7 @@ $dark-mode-text: #cbd5e1; // Slate-300
       margin-left: auto;
       width: fit-content;
       flex: 1;
+      max-width: 650px;
   
       @media (max-width: 768px) {
         margin-left: 0;
@@ -112,12 +155,16 @@ $dark-mode-text: #cbd5e1; // Slate-300
       width: 100%;
       border-radius: 0.75rem;
       overflow: hidden;
+      img{
+        width: 100%;
+        border-radius: 0.75rem;
+      }
     }
   
     &__video-placeholder {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; // 16:9 aspect ratio
+      //padding-top: 56.25%; // 16:9 aspect ratio
     }
   
     &__unmute-button {

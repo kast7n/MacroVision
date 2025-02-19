@@ -1,16 +1,17 @@
 // Color variables
-$primary-color: #00FF7F;
+$primary-color: #86C232;
 $text-color: #F1F1F1;
 $border-color: #e2e8f0;
 $background-color: rgba(14, 19, 36, 0.29);
 
 .faq {
+  
     &-container {
         display: grid;
         grid-template-columns: 2fr 2fr; // Two columns: one for the header and one for the items
         gap: 20rem;
-        margin: 2rem auto;
-        padding: 40px;
+        margin: 4rem auto;
+        padding: 4rem;
         position: relative;
         border-radius: 5px;
         opacity: 0;
@@ -20,6 +21,44 @@ $background-color: rgba(14, 19, 36, 0.29);
         &.visible {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 60%;  /* Increased size for more irregular edges */
+          height: 70%; 
+          background: radial-gradient(
+            ellipse at center,
+            rgba(34, 38, 41, 0.8) 10%,
+            rgba(84, 94, 90, 0.15) 40%,
+            rgba(63, 105, 95, 0.08) 65%,
+            rgba(0, 255, 128, 0) 90%
+          );
+          filter: blur(15px) drop-shadow(0 0 20px rgba(63, 105, 95, 0.3));
+          border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;  /* Irregular shape */
+          opacity: 0.85;
+          mix-blend-mode: screen;
+          z-index: -1;
+          animation: fogPulse 8s infinite alternate ease-in-out;
+        }
+        
+        @keyframes fogPulse {
+          0% {
+            transform: translate(-50%, -50%) scale(1);
+            filter: blur(15px) drop-shadow(0 0 20px rgba(63, 105, 95, 0.3));
+          }
+          50% {
+            transform: translate(-52%, -48%) scale(1.05);
+            filter: blur(18px) drop-shadow(0 0 25px rgba(63, 105, 95, 0.4));
+          }
+          100% {
+            transform: translate(-49%, -51%) scale(0.98);
+            filter: blur(16px) drop-shadow(0 0 22px rgba(63, 105, 95, 0.35));
+          }
         }
      
         @media (max-width: 768px) {

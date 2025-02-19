@@ -24,7 +24,7 @@ const PartnerCarousel = () => {
 
   return (
     <div  className="carousel-container">
-      <h2 className="heading">Our Partners</h2>
+      <h2 className="heading">Our  <span className='highlight'>Partners</span></h2>
       <div className="carousel-track">
         {partners.map((logo, index) => (
           <div key={`${logo.id}-${index}`} className="logo-item">

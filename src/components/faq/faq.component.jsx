@@ -60,7 +60,7 @@ const FAQ = () => {
       className={`faq-container partial-component ${isVisible ? 'visible' : ''}`}
     >
       <div className="faq-header">
-        <h2 className="faq-header__title">Frequently Asked Questions</h2>
+        <h2 className="faq-header__title"><span className='highlight'>Frequently Asked Questions</span></h2>
         <p className="faq-header__description">
           Find answers to common questions about our products and services.
         </p>

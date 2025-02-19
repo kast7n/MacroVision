@@ -33,7 +33,7 @@ const AboutBox = () => {
       {/* Hero Section */}
       <div className="about-hero">
         <div className="about-hero-content">
-          <h1>Helping companies <span className="about-highlight">evolve</span></h1>
+          <h1>Helping Companies <span className="highlight">Evolve</span></h1>
           <p>Join Macro Vision and improve your business. Get in-depth insights, video updates, and expert analysis.</p>
         </div>
         <div className="about-hero-image">
@@ -45,7 +45,7 @@ const AboutBox = () => {
       
       {/* How We Work Section */}
       <div className="about-how-we-work">
-        <h2>HOW <span className="about-highlight">WE WORK</span></h2>
+        <h2>HOW <span className="highlight">WE WORK</span></h2>
         <p className="about-description">We provide expert market insights, real-time Q&A sessions, and a strong community to enhance your trading skills. Our team of professionals is dedicated to helping you achieve your financial goals through comprehensive analysis and personalized support.</p>
       </div>
       
@@ -53,7 +53,7 @@ const AboutBox = () => {
       
       {/* Get Started Section */}
       <div className="about-get-started">
-        <h2>Get started <span className="about-highlight">for free</span></h2>
+        <h2>Get started <span className="highlight">for free</span></h2>
         <div className="about-steps-wrapper">
           <div className="about-steps-container">
             <div className="about-steps">

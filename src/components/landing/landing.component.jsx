@@ -2,7 +2,7 @@ import React from 'react';
 import './landing.styles.scss';
 import LandingReview from '../landing-review/landing-review.component';
 import VideoPlayer from '../video-player/video-player.component';
-import VideoFile from '/src/assets/videos/videoplayertest.webm';
+import VideoFile from '/src/assets/images/components/about-us/What_is_Data_Analysis.jpg';
 
 import MacroVision1 from '/src/assets/images/components/partner-carousel/MacroVision1.png';
 import MacroVision2 from '/src/assets/images/components/partner-carousel/MacroVision2.png';
@@ -27,12 +27,12 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-page partial-component">
+    <div id='Home' className="landing-page partial-component">
       <div className="landing-page__container">
         {/* Left Column - Text Content */}
         <div className="landing-page__content">
           <h1 className="landing-page__title">
-            Supercharge Your Business with Custom No-Code Automations
+            <span className='highlight'>Supercharge </span> Your Business with Custom <span className='highlight'>No-Code Automations</span>
           </h1>
           
           <div className="landing-page__text-content">
@@ -58,7 +58,7 @@ const LandingPage = () => {
 
           {/* As Seen In Section */}
           <div className="landing-page__as-seen">
-            <h2 className="landing-page__as-seen-title">As Seen In</h2>
+            <h2 className="landing-page__as-seen-title "><span className='highlight'>As Seen In </span></h2>
             <div className="landing-page__as-seen-logos">
               <img src={MacroVision1} alt="MacroVision1" />
               <img src={MacroVision2} alt="MacroVision2" />
@@ -74,7 +74,8 @@ const LandingPage = () => {
         <div className="landing-page__media">
           {/* Video Section */}
           <div className="landing-page__video-container">
-            <VideoPlayer videoUrl={VideoFile} />
+            {/* <VideoPlayer videoUrl={VideoFile} /> */}
+            <img src={VideoFile} alt="Video" />
           </div>
 
           {/* Testimonial Section */}

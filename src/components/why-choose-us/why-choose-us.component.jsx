@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
             ref={sectionRef}
             className={`container partial-component ${isVisible ? 'visible' : ''}`}
         >
-            <h2 className="heading">Why Choose Us?</h2>
+            <h2 className="heading">Why  <span className='highlight'>Choose Us?</span></h2>
    
             <ImageTextSection
                 imageUrl={ApplicationImage}

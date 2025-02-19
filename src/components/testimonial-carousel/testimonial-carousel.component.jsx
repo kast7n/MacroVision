@@ -104,7 +104,7 @@ const TestimonialCarousel = () => {
   return (
     <div 
     id='Testimonials'
-      className={`testimonial-carousel-wrapper ${isVisible ? 'testimonial-carousel-visible' : ''}`}
+      className={`testimonial-carousel-wrapper partial-component ${isVisible ? 'testimonial-carousel-visible' : ''}`}
       ref={carouselRef}
     >
       <div className="testimonial-carousel-container">

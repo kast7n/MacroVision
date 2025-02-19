@@ -10,7 +10,7 @@ const Navbar = () => {
 
   // Sections configuration
   const sections = [
-    'WhyUs', 'Testimonials', 'FAQ', 'About', 'Contact'
+    'Home', 'WhyUs', 'Testimonials', 'FAQ', 'About', 'Contact'
   ];
 
 
@@ -19,7 +19,7 @@ const Navbar = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const offset = window.innerHeight / 4;
+      const offset = window.innerHeight / 12;
       window.scrollTo({
         top: sectionTop - offset,
         behavior: 'smooth'
@@ -45,8 +45,8 @@ const Navbar = () => {
         const offsetHeight = element.offsetHeight;
 
         if (
-          scrollPosition >= offsetTop - 100 && 
-          scrollPosition < offsetTop + offsetHeight - 100
+          scrollPosition >= offsetTop - 200 && 
+          scrollPosition < offsetTop + offsetHeight - 200
         ) {
           setActiveSection(section);
           break;
@@ -94,6 +94,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className={`navbar__navigation ${isMenuOpen ? 'navbar__navigation--open' : ''}`}>
           {[
+            { id: 'Home', label: 'Home' },
             { id: 'WhyUs', label: 'Why Us?' },
             { id: 'Testimonials', label: 'Testimonials' },
             { id: 'FAQ', label: 'FAQ' },

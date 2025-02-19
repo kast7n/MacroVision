@@ -2,16 +2,17 @@
 $primary-color: #86C232;
 $secondary-color: #61892F;
 $background-color: #222629;
-$border-color: #474B4F;
-$hover-color: #6B6E70;
+$border-color: #86C232;
+$hover-color: #61892F;
 $text-color: #F2F2F2;
 $input-background-color: #525252;
 $input-border-color: #ccc;
-$button-hover-color: #6B6E70;
-$button-text-color: #2a2a3b;
+$button-hover-color: #61892F;
+$button-text-color: #f2f2f2;
 
 .contact-us {
-  padding: 2rem;
+  padding: 4rem;
+  margin: 5rem auto;
   background-color: $background-color;
   color: $text-color;
   opacity: 0;
@@ -71,12 +72,17 @@ $button-text-color: #2a2a3b;
 
         input,
         textarea {
+          resize: none;
           padding: 0.5rem;
           font-size: 1rem;
           border: 1px solid $input-border-color;
           border-radius: 0.25rem;
           background-color: $input-background-color;
           color: $text-color;
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+          }
         }
       }
 
