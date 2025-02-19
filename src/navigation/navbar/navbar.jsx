@@ -19,7 +19,7 @@ const Navbar = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const offset = window.innerHeight / 12;
+      const offset = window.innerHeight / 15;
       window.scrollTo({
         top: sectionTop - offset,
         behavior: 'smooth'

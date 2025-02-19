@@ -8,7 +8,7 @@ const ImageTextSection = ({ imageUrl, title, description, layout }) => {
         <img src={imageUrl} alt={title} />
       </div>
       <div className="textContainer">
-        <h2>{title}</h2>
+        <h2> <span className='highlight'>{title}</span></h2>
         <p>{description}</p>
       </div>
     </section>

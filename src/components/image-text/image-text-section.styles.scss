@@ -1,6 +1,6 @@
 // ImageTextSection.module.scss
 // Color variables
-$text-color: #CED8D8;
+$text-color: #f2f2f2;
 
 .section {
     display: flex;
@@ -34,12 +34,13 @@ $text-color: #CED8D8;
       h2 {
         margin-bottom: 16px;
         color: $text-color;
-        font-size: x-large;
+        font-size: xx-large;
       }
   
       p {
         line-height: 1.6;
         color: $text-color;
+        font-size: large;
       }
     }
 
