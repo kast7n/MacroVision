@@ -6,17 +6,24 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage mobile menu visibility
+  const offset =  window.innerHeight / 2; // Offset for active section change
 
   // Sections configuration
   const sections = [
     'WhyUs', 'Testimonials', 'FAQ', 'About', 'Contact'
   ];
 
+
   // Smooth scroll function
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const offset = window.innerHeight / 4;
+      window.scrollTo({
+        top: sectionTop - offset,
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false); // Close the menu after clicking a link
   };
