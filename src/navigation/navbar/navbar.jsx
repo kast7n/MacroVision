@@ -45,8 +45,8 @@ const Navbar = () => {
         const offsetHeight = element.offsetHeight;
 
         if (
-          scrollPosition >= offsetTop - 200 && 
-          scrollPosition < offsetTop + offsetHeight - 200
+          scrollPosition >= offsetTop - 300 && 
+          scrollPosition < offsetTop + offsetHeight - 300
         ) {
           setActiveSection(section);
           break;

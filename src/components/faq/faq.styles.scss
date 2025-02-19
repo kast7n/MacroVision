@@ -10,8 +10,8 @@ $background-color: rgba(14, 19, 36, 0.29);
         display: grid;
         grid-template-columns: 2fr 2fr; // Two columns: one for the header and one for the items
         gap: 20rem;
-        margin: 4rem auto;
-        padding: 6rem;
+        margin: 2rem auto;
+        padding: 2rem;
         position: relative;
         border-radius: 5px;
         opacity: 0;
@@ -29,7 +29,7 @@ $background-color: rgba(14, 19, 36, 0.29);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 50%;  /* Increased size for more irregular edges */
+          width: 45%;  /* Increased size for more irregular edges */
           height: 75%; 
           background: radial-gradient(
             ellipse at center,
