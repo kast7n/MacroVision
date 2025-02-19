@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import './App.css'
+import './App.scss'
 import WhyChooseUs from './components/why-choose-us/why-choose-us.component'
 import Navbar from './navigation/navbar/navbar'
 import PartnerCarousel from './components/partner-carousel/partner-carousel.component'

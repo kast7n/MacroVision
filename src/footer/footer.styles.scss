@@ -1,7 +1,18 @@
+// Color variables
+$primary-color: #86C232;
+$secondary-color: #61892F;
+$background-color: #222629;
+$border-color: #474B4F;
+$hover-color: #6B6E70;
+$text-color: #F2F2F2;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
 .footer {
-  background-color: #141424;
-  color: #f1f1f1;
-  padding: 1 2rem;
+  box-shadow: 0 2px 4px $box-shadow-color;
+  background-color: $background-color;
+  border-top: 1px solid $border-color;
+  color: $text-color;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +38,7 @@
       font-family: "Montserrat", sans-serif; // Use Montserrat font
       font-size: 1.5rem;
       font-weight: 600;
-      color: #f1f1f1;
+      color: $text-color;
     }
   }
 
@@ -36,11 +47,11 @@
     gap: 1rem;
 
     a {
-      color: #f1f1f1;
+      color: $text-color;
       transition: color 0.3s ease, transform 0.3s ease;
 
       &:hover {
-        color: #00ff99;
+        color: $primary-color;
         transform: scale(1.2); // Make icons bigger on hover
       }
     }
