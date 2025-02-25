@@ -19,7 +19,6 @@ $button-text-color: #2a2a3b;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  background-color: $background-color;
 
   &.about-box-visible {
     opacity: 1;

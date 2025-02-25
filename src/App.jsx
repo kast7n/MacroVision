@@ -10,12 +10,16 @@ import AboutBox from './components/abous-us/about-us.component'
 import Footer from './footer/footer'
 import ContactUs from './components/contact-us/contact-us.component'
 import LandingPage from './components/landing/landing.component'
+import Spline from '@splinetool/react-spline'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <Spline className='background'
+        scene="https://prod.spline.design/gdsrE6o-monPTbrm/scene.splinecode" 
+      />
       <Navbar/>
       <LandingPage/>
       <WhyChooseUs/>
