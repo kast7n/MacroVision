@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Spline className='background'
-        scene="https://prod.spline.design/gdsrE6o-monPTbrm/scene.splinecode" 
+         scene="https://prod.spline.design/9g1rpTOpzMRpJcW0/scene.splinecode" 
       />
       <Navbar/>
       <LandingPage/>
